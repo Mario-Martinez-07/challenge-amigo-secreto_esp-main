@@ -29,13 +29,26 @@ if (nombreAmigo !== "") {
     }
 }
 
-// Función para sortear un amigo secreto (puedes implementarla más adelante)
-function sortearAmigo() {
-    // Aquí puedes agregar la lógica para sortear un amigo secreto
-    alert("Función de sorteo aún no implementada.");
-}
-
 
 
 // Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente un nombre de la lista y se mostrará en la página.
 
+// Función para sortear un amigo secreto
+function sortearAmigo() {
+    const listaAmigos = document.getElementById('listaAmigos');
+    const amigos = listaAmigos.getElementsByTagName('li');
+
+    // Verificar si hay nombres en la lista
+    if (amigos.length === 0) {
+        alert("No hay nombres en la lista. Agrega algunos amigos primero.");
+        return;
+    }
+
+    // Seleccionar un índice aleatorio
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    const amigoSeleccionado = amigos[indiceAleatorio].textContent;
+
+    // Mostrar el resultado del sorteo
+    const resultado = document.getElementById('resultado');
+    resultado.innerHTML = `<li>El amigo seleccionado es: <strong>${amigoSeleccionado}</strong></li>`;
+}
