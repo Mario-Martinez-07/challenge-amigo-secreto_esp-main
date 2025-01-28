@@ -6,12 +6,34 @@
 // Fucionalidades:
 
 // Agregar nombres: Los usuarios escribirán el nombre de un amigo en un campo de texto y lo agregarán a una lista visible al hacer clic en "Adicionar".
+// Función para agregar un amigo a la lista
+function agregarAmigo() {
+    //Obtiene el valor del campo de texto con id="amigo".
+    const inputAmigo = document.getElementById(`amigo`);
+    // Verifica si el campo no está vacío usando trim() para eliminar espacios en blanco al principio y al final.
+    const nombreAmigo = inputAmigo.value.trim();
 
+//Si el campo no está vacío, crea un nuevo elemento <li> con el nombre del amigo y lo agrega a la lista (<ul id="listaAmigos">).
+if (nombreAmigo !== "") {
+    const listaAmigos = document.getElementById(`listaAmigos`);
+    // Crear un nuevo elemento de lista (<li>)
+    const nuevoAmigo = document.createElement(`li`);
+    // Agregar el nuevo elemento a la lista
+    listaAmigos.appendChild(nuevoAmigo);
+    nuevoAmigo.textContent = nombreAmigo;
+    // Limpiar el campo de texto después de agregar el nombre
+    inputAmigo.value = "";
+    } else {
+    // Mostrar un mensaje de alerta si el campo está vacío
+    alert(`Por favor, ecribe un nombre antes de añadir.`);
+    }
+}
 
-// Validar entrada: Si el campo de texto está vacío, el programa mostrará una alerta pidiendo un nombre válido.
-
-
-// Visualizar la lista: Los nombres ingresados aparecerán en una lista debajo del campo de entrada.
+// Función para sortear un amigo secreto (puedes implementarla más adelante)
+function sortearAmigo() {
+    // Aquí puedes agregar la lógica para sortear un amigo secreto
+    alert("Función de sorteo aún no implementada.");
+}
 
 
 
